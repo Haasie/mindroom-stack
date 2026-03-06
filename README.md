@@ -1,7 +1,7 @@
 # MindRoom Stack (Full Docker Compose)
 
 This repo starts a complete MindRoom stack in one command:
-- MindRoom backend with bundled dashboard
+- MindRoom runtime with bundled dashboard
 - Matrix Synapse + Postgres + Redis
 - Element Web client
 
@@ -53,10 +53,10 @@ If `matrix.localhost` doesn’t resolve on your device, either:
 
 ## Configure Models
 
-Edit `config.yaml` and restart the backend:
+Edit `config.yaml` and restart MindRoom:
 
 ```bash
-docker compose restart backend
+docker compose restart mindroom
 ```
 
 Example OpenAI-compatible base URL:
@@ -81,7 +81,7 @@ memory:
       host: http://your-embeddings-server/v1
 ```
 
-Ensure `.env` has a valid API key for the provider you use, then restart the backend.
+Ensure `.env` has a valid API key for the provider you use, then restart MindRoom.
 
 ## API Keys
 
@@ -111,8 +111,8 @@ docker compose down
 
 - Port already in use: the stack binds ports 8008, 8080, and 8765. Stop any
   conflicting services or change the port mappings in `compose.yaml`.
-- Frontend shows a config error: ensure backend is running and `config.yaml` is valid.
-- Agents don't respond: set a real API key in `.env` (or via the UI) and restart the backend.
+- The dashboard shows a config error: ensure MindRoom is running and `config.yaml` is valid.
+- Agents don't respond: set a real API key in `.env` (or via the UI) and restart MindRoom.
 
 ## Production Notes
 
